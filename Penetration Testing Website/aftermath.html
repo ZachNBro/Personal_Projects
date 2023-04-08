@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+        <body style="text-align:center;">
+            <div class="content; w3-container w3-flat-midnight-blue">
+                <!--style for each web page-->
+                 <style>
+                      div {
+                      width: 1200px;
+                      margin-left: 350px;
+                      margin-right: 350px;
+                      }
+
+                 </style>
+                 <h1>Aftermath</h1>
+                 <br>
+                    <p align="left">
+                        How did you do? This scenerio was merely brushing the surface of the cyber-security world and
+                        what needs to be done to ensure sensitive data is properly stored and managed. These days,
+                        one could consider data as one of the most valuable resources on the planet. We, as security
+                        experts and normal employees, must try to minimize or even eliminate the attack surface and
+                        potential attack vectors. Going forward, there are other security controls we would definitely
+                        want to add to this application. Can you think of any?
+                    </p>
+                        <ul style="display: inline-block;" align="left">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="scenerio.html">PART I: Scenerio</a></li>
+                            <li><a href="source_code.html">PART II: Source Code</a></li>
+                            <li><a href="source_code_fix.html">PART III: Source Code Fix</a></li>
+                        </ul>
+                    <p>Current Date/Time: <span id="datetime"></span></p>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                    </script>
+            </div>
+        </body>

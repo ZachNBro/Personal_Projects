@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+        <body style="text-align:center;">
+            <div class="content; w3-container w3-flat-midnight-blue">
+                <!--style for each web page-->
+                   <style>
+                         div {
+                             width: 1200px;
+                             margin-left: 350px;
+                             margin-right: 350px;
+                         }
+                    </style>
+                 <h1>Scenerio</h1>
+                <p align="left">
+                    You are part of the security team at a small software company called Software-R-Us. Your
+                    company stores and manages customer data for a larger software company. Software-R-Us has recently
+                    deployed their data management system which includes a login application for its employees. Each
+                    employee has been granted specific permissions based on their position within the company.
+                    However, after deploying the application, someone has apparently gained access to an admin's account
+                    and began wreaking havoc on the data being managed.
+                    <br>
+                    <br>
+                    As the company's newely appointed security expert, you are to review the login application's code
+                    and find out how and why the malicious user was able to gain access to and manipulate the data.
+                    <br>
+                    <br>
+                    Please click the PART II: Source Code Analysis link to get started. This is a four-part
+                    procedure.
+                </p>
+                    <br>
+                        <ul style="display: inline-block;" align="left">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="source_code_analysis.html">PART II: Source Code Analysis</a></li>
+                        </ul>
+                    <p>Current Date/Time: <span id="datetime"></span></p>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                    </script>
+            </div>
+        </body>

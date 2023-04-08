@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+        <body style="text-align:center;">
+            <div class="content; w3-container w3-flat-midnight-blue">
+                 <style>
+                         div {
+                             width: 1200px;
+                             margin-left: 350px;
+                             margin-right: 350px;
+                         }
+                 </style>
+                 <h1>About</h1>
+                     <p>
+                         Access Control: Limits what actions can be performed after the authentication phase of a
+                         credential-checking procedure.
+                     </p>
+                     <br>
+                     <p align="left">
+                         Access Control is an exceptionally import part of an application or program, especially
+                         when we are dealing with vast amounts of sensitive data such as employee and customer PII.
+                         Two aspects of access control involve the initial Authentication process followed by the
+                         Authorization process. We start with authentication; using strong passwords and two-factor
+                         authentication methods. We follow with proper authorization; granting appropriate permissions
+                         to those users who are authenticated. These are known as Access Levels.
+                         <br>
+                         <br>
+                         Without proper access levels, malicious users may be able to bypass safety mechanisms and gain
+                         unauthorized access to a system including its resources and data. For this pen-testing
+                         procedure, we will delve into a situation where hightened access has been granted to a
+                         malicious user. It is up to you to decide how to mitigate it based on the information learned.
+                         <br>
+                         <br>
+                         Please click the PART I: Scenerio link to get started. This is a three-part procedure.
+                     </p>
+                     <br>
+                        <ul style="display: inline-block;" align="left">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="scenerio.html">PART I: Scenerio</a></li>
+                        </ul>
+                    <p>Current Date/Time: <span id="datetime"></span></p>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                    </script>
+            </div>
+        </body>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+        <body style="text-align:center;">
+            <div class="div; w3-container w3-flat-midnight-blue">
+                <!--style for each web page-->
+                 <style>
+                      div {
+                          width: 1200px;
+                          margin-left: 350px;
+                          margin-right: 350px;
+                      }
+                 </style>
+                 <h1>Source Code (PART II)</h1>
+                 <br>
+                 <p align="left">
+                     In this stage we will review the login application at the Software-R-Us company and determine
+                     if there are specific vulnerabilities pertaining to authentication and authorization. First,
+                     click the link below to the online compiler to review the code.
+                 </p>
+                <p style="color:white; font-style:italic"> Review the code here:
+                                     <a href="http://jdoodle.com/ia/zUk">Review</a></p>
+                <p align="left">
+                    Do you noticed anything suspicious? Make sure to review the register procedure on lines
+                    74 - 84 and the login procedure on lines 86 - 93. Using what you know about authentication, what
+                    are the issues with these methods?
+                </p>
+
+                <img src="https://i.ibb.co/Db7QBVW/Methods.png;" align="center">
+                <br>
+                <p align="left">
+                    You remember talking to one of the admins, Jake, during a recent coffee break. He mentioned that he
+                    likes listening to Eminem on a daily basis. You are curious as to whether his interests are reflected
+                    in his login credentials. You decide to try some vulnerable passwords using what you know about
+                    Jake's music interest and try to log in to his account. Let's open the code in the following link
+                    and compile it using the following Stdin values.
+                </p>
+                <br>
+                <img src="https://i.ibb.co/XJyYp9G/inputs.png;" align="center">
+                <br>
+                 <p style="color:white; font-style:italic"> Compile the code here:
+                                     <a href="http://jdoodle.com/ia/zUn">Compile</a></p>
+                <p align=center">
+                    What was the output? Your output should look like this:
+                </p>
+                <br>
+                    <img src="https://i.ibb.co/HCcKFzW/result.png;" align="center">
+                <br>
+                <p align="left">
+                    As you can see, there are some serious security concerns here. Select the following issues you think
+                    exist based on the two methods you have reviewed in the source code and the output.
+                </p>
+                <br>
+                  <h3>Please choose which issues exist:</h3>
+                  <p>Hint: There are multiple issues. Please choose one option at a time and click submit.</p>
+                  <hr/>
+
+                  <container id='block-11';>
+                    <label for='option-11'>
+                      <input type='radio' name='option' id='option-11' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                      Lack of password complexity</label>
+                    <span id='result-11'></span>
+                  </container>
+                  <hr/>
+
+                  <container id='block-12'>
+                    <label for='option-12'>
+                      <input type='radio' name='option' id='option-12' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                      Incorrect naming conventions</label>
+                    <span id='result-12'></span>
+                  </container>
+                  <hr/>
+
+                  <container id='block-13'>
+                    <label for='option-13'>
+                      <input type='radio' name='option' id='option-13' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                      Non-existent multi-factor authentication</label>
+                    <span id='result-13'></span>
+                  </container>
+                  <hr/>
+
+                 <container id='block-14'>
+                    <label for='option-14'>
+                      <input type='radio' name='option' id='option-14' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                      Potential data leakage via inline comments</label>
+                    <span id='result-14'></span>
+                  </container>
+                  <hr/>
+
+                  <container id='block-15'>
+                    <label for='option-15'>
+                      <input type='radio' name='option' id='option-15' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                      Unnecessary permissions</label>
+                    <span id='result-15'></span>
+                  </container>
+                  <hr/>
+                    <br>
+                  <button type='button' onclick='displayAnswer1()' style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+
+                <a id='showanswer1'></a>
+                <script>
+                  // The function evaluates the answer and displays result
+                  function displayAnswer1() {
+                    if (document.getElementById('option-11').checked) {
+                      document.getElementById('result-11').style.color = 'limegreen'
+                      document.getElementById('result-11').innerHTML = 'Correct!'
+                    }
+                    if (document.getElementById('option-12').checked) {
+                      document.getElementById('result-12').style.color = 'red'
+                      document.getElementById('result-12').innerHTML = 'Incorrect!'
+                    }
+                    if (document.getElementById('option-13').checked) {
+                      document.getElementById('result-13').style.color = 'limegreen'
+                      document.getElementById('result-13').innerHTML = 'Correct!'
+                    }
+                    if (document.getElementById('option-14').checked) {
+                      document.getElementById('result-14').style.color = 'red'
+                      document.getElementById('result-14').innerHTML = 'Incorrect!'
+                    }
+                       if (document.getElementById('option-15').checked) {
+                      document.getElementById('result-15').style.color = 'limegreen'
+                      document.getElementById('result-15').innerHTML = 'Correct!'
+                    }
+                  }
+                </script>
+                <br>
+                <p align="left">
+                    Did you figure out which issues exist? Let's take note of which ones we found. We must fix these
+                    issues quickly before any other attackers get ahold of the data that the company is responsible for.
+                    Let's go on to the next phase and try to add some security controls.
+                    Please click the PART III: Source Code Fix to continue.
+                </p>
+                        <ul style="display: inline-block;" align="left">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="scenerio.html">PART I: Scenerio</a></li>
+                            <li><a href="source_code_fix.html">PART III: Source Code Fix</a></li>
+                        </ul>
+                    <p>Current Date/Time: <span id="datetime"></span></p>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                    </script>
+            </div>
+        </body>

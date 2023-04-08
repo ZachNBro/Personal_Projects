@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+        <body style="text-align:center;">
+            <div class="div; w3-container w3-flat-midnight-blue">
+                <!--style for each web page and block for source code labels-->
+                 <style>
+                      div {
+                          width: 1200px;
+                          margin-left: 350px;
+                          margin-right: 350px;
+                      }
+
+                      code {
+                        display: block;
+                        margin-left: 450px;
+                        text-align: left;
+                      }
+
+                 </style>
+                 <h1>Source Code (PART II)</h1>
+                 <br>
+                 <p align="left">
+                     In this stage we will implement some fixes to the code to make it more secure and prevent
+                     further unauthorized access. Let's first look at the password complexity issue. Since there are
+                     no complexity rules, let's figure out what we should implement to meet OWASP standards.
+                     <br>
+                     OWASP states that passwords should be more than 8 characters but no more than 64. They should also
+                     allow the use of all special characters, numbers, upper and lower case letters. To achieve this
+                     requirement, we can use Regular Expressions or REGEX. REGEX are specific patterns of characters
+                     that are required to exist in the input. Please choose from the following options the best REGEX
+                     pattern to insert into the login application.
+                 </p>
+
+                    <h3>Please choose the best REGEX pattern:</h3>
+                      <p>Hint: Refer to the OWASP requirements. Please choose one option at a time and click submit.</p>
+                      <hr />
+                        <!--REGEX quiz optiions-->
+                      <container id='block-11'>
+                        <label for='option-11'>
+                          <input type='radio' name='option' id='option-11' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                         Pattern validPattern = Pattern.compile("^(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{2,8}$")
+                          </label>
+                        <span id='result-11'></span>
+                      </container>
+                      <hr />
+
+                      <container id='block-12'>
+                        <label for='option-12'>
+                          <input type='radio' name='option' id='option-12' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            Pattern validPattern = Pattern.compile("^(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$")
+                          </label>
+                        <span id='result-12'></span>
+                      </container>
+                      <hr />
+
+                      <container id='block-13'>
+                        <label for='option-13'>
+                          <input type='radio' name='option' id='option-13' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            Pattern validPattern = Pattern.compile("^(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")
+                        </label>
+                        <span id='result-13'></span>
+                      </container>
+                      <hr />
+                        <br>
+                      <button type='button' onclick='displayAnswer1()' style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+
+                    <a id='showanswer1'></a>
+                    <!--display colored text depending on right or wrong answer-->
+                    <script>
+                      // The function evaluates the answer and displays result
+                      function displayAnswer1() {
+                        if (document.getElementById('option-11').checked) {
+                          document.getElementById('result-11').style.color = 'red'
+                          document.getElementById('result-11').innerHTML = 'Incorrect!'
+                        }
+                        if (document.getElementById('option-12').checked) {
+                          document.getElementById('result-12').style.color = 'red'
+                          document.getElementById('result-12').innerHTML = 'Incorrect!'
+                        }
+                        if (document.getElementById('option-13').checked) {
+                          document.getElementById('result-13').style.color = 'limegreen'
+                          document.getElementById('result-13').innerHTML = 'Correct!'
+                        }
+                      }
+                    </script>
+                    <br>
+                    <br>
+                <button id="ExplanationButton">Explanation</button>
+                <p id="text"; align="left" style="border-width:3px; border-style:solid; border-color:limegreen; padding: 1em;">
+                <script>
+                    // The function displays the explanation to the user when the button is pressed
+                    const button = document.getElementById('ExplanationButton');
+                    button.addEventListener("click", myFunction);
+
+                    function myFunction() {
+                      document.getElementById("text").innerHTML = "If we analyze each regex we " +
+                      "can determine if they meet the OWASP requirements or not. The first option has a couple of " +
+                      "deficiencies. First, there is no requirement for an uppercase letter. Also, this pattern only " +
+                      "requires a minimum of 2 to a maximum of 8 characters. The second one also has a deficiency. While it " +
+                      "does require the minimum 8 characters, there is still no requirement for an uppercase letter. We " +
+                      "want to make the password as secure as possible so the third option is the best as it requires " +
+                      "an uppercase letter and at least 8 characters.";
+                    }
+                </script>
+
+                <p align="left">
+                    Next, we must add another security control known as Multi-Factor Authentication (MFA) or
+                    Two-Factor Authentication (2FA). This adds an extra layer of security under the circumstances your
+                    password is still compromised. OWASP states that while Email is one method to
+                    do this, it is under scrutiny as to whether is it truly MFA; the user may be using the same password
+                    for their Email and the process can be easily compromised. It is recommended to use other methods such
+                    as Tokens, Certificates, Smart Cards and SMS messaging. For this example, we will just simulate
+                    the code generation.
+                </p>
+                <p align="left">
+                    There are many options to achieve this. One way is the use of a random string of digits to send the user
+                    and prompt them to enter that string in order to log in. We have to be careful here though as generating
+                    simple/easy-to-guess secret codes is counter-intuitive; someone conducting a Man in the Middle attack
+                    that does somehow obtain your login credentials can try to log in and guess the secret code. Please choose
+                    from the following options the best way to implement the secret code generation.
+                </p>
+
+                <h3>Please choose the best method:</h3>
+                  <p>Hint: Refer to the NIST requirements. Please choose one option at a time and click submit.</p>
+                  <hr />
+
+                  <container id='block-14'>
+                      <!-- code tag used to contain source code in a block for formatting purposes -->
+                      <code>
+                    <label for='option-14'>
+                      <input type='radio' name='option' id='option-14' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                          StringBuilder sb = new StringBuilder(8); <br>
+                          SecureRandom sr = new SecureRandom(); <br>
+                          for (int i = 0; i < 8; i++) { <br>
+                          int randomInt = sr.nextInt(8); <br>
+                          sb.append(randomInt); <br>
+                          }
+                    </label>
+                      </code>
+                    <span id='result-14'></span>
+                  </container>
+                  <hr />
+
+                  <container id='block-15'>
+                      <code>
+                    <label for='option-15'>
+                      <input type='radio' name='option' id='option-15' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                          StringBuilder sb = new StringBuilder(2); <br>
+                          SecureRandom sr = new SecureRandom(); <br>
+                          for (int i = 0; i < 2; i++) { <br>
+                          int randomInt = sr.nextInt(2); <br>
+                          sb.append(randomInt); <br>
+                          }
+                    </label>
+                      </code>
+                    <span id='result-15'></span>
+                  </container>
+                  <hr />
+
+                  <container id='block-16'>
+                      <code>
+                    <label for='option-16'>
+                      <input type='radio' name='option' id='option-16' style='transform: scale(1.6); margin-right: 10px; vertical-align: middl; margin-top: -2px;' />
+                          StringBuilder sb = new StringBuilder(6); <br>
+                          Random sr = new Random(); <br>
+                          for (int i = 0; i < 6; i++) { <br>
+                          int randomInt = sr.nextInt(6); <br>
+                          sb.append(randomInt); <br>
+                          }
+                    </label>
+                      </code>
+                    <span id='result-16'></span>
+                  </container>
+                  <hr />
+                    <br>
+                  <button type='button' onclick='displayAnswer2()' style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+                <a id='showanswer2'></a>
+                <script>
+                  // The function evaluates the answer and displays result
+                  function displayAnswer2() {
+                    if (document.getElementById('option-14').checked) {
+                      document.getElementById('result-14').style.color = 'limegreen'
+                      document.getElementById('result-14').innerHTML = 'Correct!'
+                    }
+                    if (document.getElementById('option-15').checked) {
+                      document.getElementById('result-15').style.color = 'red'
+                      document.getElementById('result-15').innerHTML = 'Incorrect!'
+                    }
+                    if (document.getElementById('option-16').checked) {
+                      document.getElementById('result-16').style.color = 'red'
+                      document.getElementById('result-16').innerHTML = 'Incorrect!'
+                    }
+                  }
+                </script>
+                <br>
+                <br>
+                <button id="ExplanationButton2">Explanation</button>
+                <p id="text2"; align="left" style="border-width:3px; border-style:solid; border-color:limegreen; padding: 1em;">
+
+                <script>
+                    // The function displays the explanation to the user when the button is pressed
+                    const button2 = document.getElementById('ExplanationButton2');
+                    button2.addEventListener("click", myFunction);
+
+                    function myFunction() {
+                      document.getElementById("text2").innerHTML = "If we analyze each string " +
+                      "builder method, two of them have deficiencies. The second option uses the appropriate " +
+                      "Java method SecureRandom(), which as opposed to the conventional random() function, uses a " +
+                      "cryptographically strong algorithm to generate its random number. However, you will notice that " +
+                      "there is only a value of 2 being passed. A 2 digit code is insufficient in accordance " +
+                      "with the NIST 800-63B and must be a minimum of 6 digits. It is, however, still recommended " +
+                      "to follow the memorized secret (password) guidelines of at least 8. " +
+
+                      "The third option is probably easy to understand why it is insufficient from a security standpoint. " +
+                      "This method is not of the recommended type. The conventional random number generator does " +
+                      "not use a cryptographyically-strong algorithm to generate its numbers. Therefore, the first option " +
+                      "is the best; it uses the appropriate method and creates an adequate length of digits to minimize " +
+                      "the code being guessed.";
+                    }
+                </script>
+
+                <p align="left">
+                    For the final fix, we determined that there were unnecessary permissions granted to the admin Jake.
+                    Looking at the options that you saw in the console during stage II, which ones would you think
+                    are unnecessary? Jake only needs to contact specific customers and company rules dictate that any
+                    correspondence to the director must be done in-person or through the private company messaging service.
+                    Also, it is important to note that editing customer data requires additional authentication that is
+                    only known among employees. Finally, requesting a new password requires answering security questions and
+                    the director's authorization.
+                </p>
+                <br>
+                <h3>Please choose which permissions are unnecessary:</h3>
+                      <p>Hint: There are multiple unnecessary permissions. Please choose one option at a time and click submit.</p>
+                      <hr />
+
+                      <container id='block-17'>
+                        <label for='option-17'>
+                          <input type='radio' name='option' id='option-17' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            VIEW ALL CUSTOMER DATA
+                          </label>
+                        <span id='result-17'></span>
+                      </container>
+                      <hr />
+
+                      <container id='block-18'>
+                        <label for='option-18'>
+                          <input type='radio' name='option' id='option-18' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            EDIT CUSTOMER DATA
+                          </label>
+                        <span id='result-18'></span>
+                      </container>
+                      <hr />
+
+                      <container id='block-19'>
+                        <label for='option-19'>
+                          <input type='radio' name='option' id='option-19' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            CONTACT DIRECTOR
+                        </label>
+                        <span id='result-19'></span>
+                      </container>
+                      <hr/>
+
+                <container id='block-20'>
+                        <label for='option-20'>
+                          <input type='radio' name='option' id='option-20' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            CONTACT ALL ADMINS
+                        </label>
+                        <span id='result-20'></span>
+                      </container>
+                      <hr/>
+
+                <container id='block-21'>
+                        <label for='option-21'>
+                          <input type='radio' name='option' id='option-21' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            CONTACT ALL CUSTOMERS
+                        </label>
+                        <span id='result-21'></span>
+                      </container>
+                      <hr/>
+
+                <container id='block-22'>
+                        <label for='option-22'>
+                          <input type='radio' name='option' id='option-22' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                            REQUEST NEW PASSWORD
+                        </label>
+                        <span id='result-22'></span>
+                      </container>
+                      <hr/>
+                        <br>
+                      <button type='button' onclick='displayAnswer3()' style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+                    <a id='showanswer3'></a>
+                    <script>
+                      // The function evaluates the answer and displays result
+                      function displayAnswer3() {
+                        if (document.getElementById('option-17').checked) {
+                          document.getElementById('result-17').style.color = 'limegreen'
+                          document.getElementById('result-17').innerHTML = 'Correct!'
+                        }
+                        if (document.getElementById('option-18').checked) {
+                          document.getElementById('result-18').style.color = 'red'
+                          document.getElementById('result-18').innerHTML = 'Incorrect!'
+                        }
+                        if (document.getElementById('option-19').checked) {
+                          document.getElementById('result-19').style.color = 'limegreen'
+                          document.getElementById('result-19').innerHTML = 'Correct!'
+                        }
+                        if (document.getElementById('option-20').checked) {
+                          document.getElementById('result-20').style.color = 'limegreen'
+                          document.getElementById('result-20').innerHTML = 'Correct!'
+                        }
+                        if (document.getElementById('option-21').checked) {
+                          document.getElementById('result-21').style.color = 'limegreen'
+                          document.getElementById('result-21').innerHTML = 'Correct!'
+                        }
+                        if (document.getElementById('option-22').checked) {
+                          document.getElementById('result-22').style.color = 'red'
+                          document.getElementById('result-22').innerHTML = 'Incorrect!'
+                        }
+                      }
+                    </script>
+                <br>
+                <br>
+                <button id="ExplanationButton3">Explanation</button>
+                <p id="text3"; align="left"; style="border-width:3px; border-style:solid; border-color:limegreen; padding: 1em;">
+
+                <script>
+                    // The function displays the explanation to the user when the button is pressed
+                    const button3 = document.getElementById('ExplanationButton3');
+                    button3.addEventListener("click", myFunction);
+
+                    function myFunction() {
+                      document.getElementById("text3").innerHTML = "As was stated, Jake is " +
+                      "an admin at the company and they are only authorized to contact specific customers that they " +
+                      "are responsible for. Jake should not have the ability to contact ALL customers as he would " +
+                      "not need to for business purposes. The malicious user, however, would have the ability to " +
+                      "not only act as Jake and conduct correspondence to all of them, but also have access to " +
+                      "their personal information. " +
+
+                      "Additionally, Jake should not be able to contact ALL admins. This is also a similar " +
+                      "vulnerability in which the malicious user could act as Jake and potentially extract sensitive " +
+                      "and exploitable information. Jake should only have the ability to contact specific admins and " +
+                      "there should be some form of MFA to do so in order to prove it is actually Jake. " +
+
+                      "Furthermore, the director should not be contacted through this portal. As the " +
+                      "company rules dictate that they must be contacted in person or through a private messaging service. " +
+                      "A malicious user could now act as Jake and message the director to request further heightened " +
+                      "access to the data or gain sensitive company information.";
+                    }
+                </script>
+                        <ul style="display: inline-block;" align="left">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="scenerio.html">PART I: Scenerio</a></li>
+                            <li><a href="source_code_analysis.html">PART II: Source Code Analysis</a></li>
+                            <li><a href="aftermath.html">PART IV: Aftermath</a></li>
+                        </ul>
+                    <p>Current Date/Time: <span id="datetime"></span></p>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                    </script>
+            </div>
+        </body>
