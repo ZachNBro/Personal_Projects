@@ -28,7 +28,7 @@ public class CrimeData {
 		private void buildParseLines(String line) {
 				
 		USCrimeClass crimeDataForYear = new USCrimeClass(0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-														0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+									0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 				
 		column = 1;
 				
