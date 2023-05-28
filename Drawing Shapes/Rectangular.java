@@ -19,12 +19,12 @@ public class Rectangular extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		
-			Shape.setColor(g);
+		Shape.setColor(g);
 			
-			if (getSolid().equalsIgnoreCase("Hollow")) {
-				g.drawRect(x, y, width, height);
-			} else {
-				g.fillRect(x, y, width, height);
-			}	
+		if (getSolid().equalsIgnoreCase("Hollow")) {
+			g.drawRect(x, y, width, height);
+		} else {
+			g.fillRect(x, y, width, height);
+		}	
 	}
 }
