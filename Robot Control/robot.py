@@ -1,3 +1,15 @@
+"""
+    File name: robot.py
+    Author: Zachary Brown
+    Date created: 05/24/23
+    Date last modified: 05/29/23
+    Python version: 3.9
+    Description: Control a robot using keystrokes or
+    speech-to-text modes. This program uses the pygame
+    and speech recognition modules as well as threading
+    for smoother operation.
+"""
+
 import pygame
 import math
 import speech_recognition as sr
