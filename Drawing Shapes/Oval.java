@@ -19,12 +19,12 @@ public class Oval extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		
-			Shape.setColor(g);	
+		Shape.setColor(g);	
 			
-			if (getSolid().equalsIgnoreCase("Hollow")) {
-				g.drawOval(x, y, width, height);
-			} else {
-				g.fillOval(x, y, width, height);
-			}
+		if (getSolid().equalsIgnoreCase("Hollow")) {
+			g.drawOval(x, y, width, height);
+		} else {
+			g.fillOval(x, y, width, height);
+		}
 	}
 }
