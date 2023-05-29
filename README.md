@@ -17,3 +17,5 @@ new_test.py is a program incorporating object-oriented and functional programmin
 
 The Robot Control program incorporates the use of the pygame module as well as using keystroke and voice commands to guide a robot. The image robot.png_small is needed for this program to work properly.
 
+stock_predictor.py incorporates many machine learning modules to track and predict stock prices. The program pulls data from Yahoo Finance and display's an actual and predicted trend to the user. This program is still under devlopment.
+
