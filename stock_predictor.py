@@ -52,9 +52,9 @@ regressor = KerasRegressor(build_fn=build_model)
 
 # Define the hyperparameter search space
 param_grid = {
-    'units': [50, 100, 150],
-    'epochs': [20, 30, 40],
-    'batch_size': [32, 64, 128]
+    'units': [50, 100],
+    'epochs': [20, 30],
+    'batch_size': [32, 64]
 }
 
 # Define the search method
@@ -74,7 +74,10 @@ def perform_hyperparameter_tuning(X, y):
 
     search.fit(X, y)
     best_params = search.best_params_
-    return best_params
+    best_score = search.best_score_
+    print("Best hyperparameters:", best_params)
+    print("Best score:", best_score)
+    return best_params, best_score
 
 # Perform tuning and training
 def perform_tuning_and_training():
@@ -83,8 +86,7 @@ def perform_tuning_and_training():
     search_method = search_method_var.get()
 
     # Perform hyperparameter tuning
-    best_params = perform_hyperparameter_tuning(X_train, y_train)
-    print("Best hyperparameters:", best_params)
+    best_params, best_score = perform_hyperparameter_tuning(X_train, y_train)
 
     # Build the model with the best hyperparameters
     model = build_model(units=best_params['units'])
@@ -100,14 +102,27 @@ def perform_tuning_and_training():
     train_predictions = scaler.inverse_transform(train_predictions)
     test_predictions = scaler.inverse_transform(test_predictions)
 
-    # Plot the results
-    plt.plot(data['Close'], color='blue', label='Actual')
-    plt.plot(np.concatenate([train_predictions, test_predictions]), color='red', label='Predicted')
-    plt.title('Nvidia Stock Price Prediction')
-    plt.xlabel('Time')
-    plt.ylabel('Stock Price')
-    plt.legend()
+    # Create a figure with two subplots
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 12))
+
+    # Plot the actual stock prices
+    ax1.plot(data.index, data['Close'], color='blue', label='Actual')
+    ax1.set_title('Actual Nvidia Stock Prices')
+    ax1.set_xlabel('Time')
+    ax1.set_ylabel('Stock Price')
+    ax1.legend()
+
+    # Plot the predicted stock prices
+    ax2.plot(data.index[train_size + seq_length:], test_predictions, color='red', label='Predicted')
+    ax2.set_title('Predicted Nvidia Stock Prices')
+    ax2.set_xlabel('Time')
+    ax2.set_ylabel('Stock Price')
+    ax2.legend()
+
+    # Adjust the layout and display the figure
+    plt.tight_layout()
     plt.show()
+
 
 # Import Tkinter for GUI
 from tkinter import *
