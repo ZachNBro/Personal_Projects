@@ -17,5 +17,24 @@ new_test.py is a program incorporating object-oriented and functional programmin
 
 The Robot Control program incorporates the use of the pygame module as well as using keystroke and voice commands to guide a robot. The image robot.png_small is needed for this program to work properly.
 
-stock_predictor.py incorporates machine learning modules to track and predict stock prices. The program pulls data from Yahoo Finance and display's an actual and predicted trend to the user. This program is still under development.
+stock_predictor.py incorporates machine learning modules to track and predict stock prices. The program pulls data from Yahoo Finance and display's an actual and predicted trend to the user. Additionally, this program finds the best hyperparameters to use for predicition purposes. Note that this program is still under development.
 
+このリポジトリには個人的なプロジェクトと学校のプロジェクトが含まれています。
+
+学校のプロジェクト：
+
+犯罪統計プログラムは、Excelファイルに保存されたさまざまな犯罪データを抽出し、ユーザーに表示します。
+
+図形描画プログラムは、ユーザーがGUI上でさまざまな種類の図形を描画することができます。
+
+物件管理データベースは、GUIを使用してデータベース内の格納された物件を表示および変更することができます。
+
+侵入テストウェブサイトには、侵入テストの技術に関する情報や修正の推奨事項が含まれています。プログラムには、ユーザーが完了するためのシナリオがあります。
+
+個人のプロジェクト：
+
+new_test.pyは、オブジェクト指向および関数型プログラミングの要素を取り入れたプログラムです。このプログラムを正しく動作させ、その使用方法を示すために、編集されていないオリジナルのソースコードファイルと、悪意のあるコードが挿入された（または削除された）ソースコードファイルが必要です。
+
+ロボット制御プログラムは、pygameモジュールの使用とキーストロークおよび音声コマンドの使用を組み合わせてロボットを案内するために使用されます。このプログラムを正しく動作させるには、画像robot.png_smallが必要です。
+
+stock_predictor.pyは、機械学習モジュールを組み込んで株価を追跡・予測するプログラムです。プログラムはYahoo Financeからデータを取得し、ユーザーに実際のトレンドと予測されるトレンドを表示します。また、このプログラムは予測目的に使用するための最適なハイパーパラメータを見つけます。なお、このプログラムはまだ開発中です。
