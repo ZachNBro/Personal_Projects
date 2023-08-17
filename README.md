@@ -11,6 +11,8 @@ The Property Management Database  allows the user to view and modify stored prop
 
 The Penetration Testing Website contains information on pen-testing techniques and recommendations for fixes. The program has a scenerio for the user to complete.
 
+state_database.py is a simple program that uses a dictionary to store and pass various data about U.S. states including the capital, population, and the state flower.
+
 Personal Projects:
 
 new_test.py is a program incorporating object-oriented and functional programming aspects. An original source code file (unedited) and an edited source code file that imitates malicious code inserted (or deleted code) are required for this program to work properly and show its use.
@@ -30,6 +32,8 @@ stock_predictor.py incorporates machine learning modules to track and predict st
 物件管理データベースは、GUIを使用してデータベース内の格納された物件を表示および変更することができます。
 
 侵入テストウェブサイトには、侵入テストの技術に関する情報や修正の推奨事項が含まれています。プログラムには、ユーザーが完了するためのシナリオがあります。
+
+「state_database.py」は、データ構造を使用して、アメリカ合衆国の州に関する様々なデータ（首都、人口、州の花など）を格納して受け渡すシンプルなプログラムです。
 
 個人のプロジェクト：
 
