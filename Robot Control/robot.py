@@ -1,3 +1,11 @@
+"""
+    File name: robot.py
+    Author: Zachary Brown
+    Python version: 3.9
+    Purpose: Practice using the methods and functions of the 
+    pygame module.
+"""
+
 import pygame
 import math
 import speech_recognition as sr
