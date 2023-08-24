@@ -29,28 +29,28 @@ public class TestCrime {
 		System.out.println(elapsedTime());
 		}
 	
-			// Timer methods
-			public static void setStartTime() {
-				startTime = System.nanoTime();
-			}
-			public static double getStartTime() { 
-				return startTime;
-			}
+		// Timer methods
+		public static void setStartTime() {
+			startTime = System.nanoTime();
+		}
+		public static double getStartTime() { 
+			return startTime;
+		}
 			
-			public static void setEndTime() {
-				endTime = System.nanoTime();
-			}
-			public static double getEndTime() { 
-				return endTime;
-			} 
+		public static void setEndTime() {
+			endTime = System.nanoTime();
+		}
+		public static double getEndTime() { 
+			return endTime;
+		} 
 			
-			// String method to display elapsed time to user upon completion
-			public static String elapsedTime(){
-	    		double time = (getEndTime() - getStartTime())/1000000000.0; 
-	    		String elapsedTime = ("\n***Elapsed Time: " + Math.round(time) + " seconds***\n");
-	    		elapsedTime += "***Thank you for using the US Crime Statistics Program***\n\n";
+		// String method to display elapsed time to user upon completion
+		public static String elapsedTime(){
+	    	double time = (getEndTime() - getStartTime())/1000000000.0; 
+	    	String elapsedTime = ("\n***Elapsed Time: " + Math.round(time) + " seconds***\n");
+	    	elapsedTime += "***Thank you for using the US Crime Statistics Program***\n\n";
 	    		
 	    	return elapsedTime;		
-			}		
+		}		
 }
 
