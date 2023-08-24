@@ -1,3 +1,11 @@
+"""
+    File name: stock_predictor.py
+    Author: Zachary Brown
+    Python version: 3.9
+    Purpose: Practice using various machine learning modules
+    available to create a prediction graph for Nvidia stock.
+"""
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
