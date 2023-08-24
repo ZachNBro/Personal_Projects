@@ -77,47 +77,47 @@ public class Menu {
 	    	input.close();	
 		}
 		
-		    	// Loop to call methods from the CrimeData class to display applicable data
-		    	public void reportSelection(String selection){
+		// Loop to call methods from the CrimeData class to display applicable data
+		public void reportSelection(String selection){
 		
-		    	boolean askContinue = false; 
+		boolean askContinue = false; 
 		
-		    	if ("1".equals(selection)) {
+			if ("1".equals(selection)) {
 				ArrayList<String> growthRateChart = crimeData.popGrowthRate();
 					for(String year : growthRateChart)
 						System.out.println(year);
 						skContinue = true;
-		
+			
 			} else if ("2".equals(selection)) {
 				System.out.println(crimeData.murderRateHigh());
 				askContinue = true;
-						
+							
 			} else if ("3".equals(selection)) {
 				System.out.println(crimeData.murderRateLow());
 				askContinue = true;
-						
+							
 			} else if ("4".equals(selection)) {
 				System.out.println(crimeData.robberyRateHigh());
 				askContinue = true;
-						
+							
 			} else if ("5".equals(selection)) {
 				System.out.println(crimeData.robberyRateLow());
 				askContinue = true;
-						
+							
 			} else if ("Q".equals(selection)) {
 				return;
-						
+							
 			} else if ("M".equals(selection)) {
 				menu();
-						
+							
 			} else {
 				System.out.println("\n\n**Invalid Entry. Please re enter your selection**\n");
-				menu();	
+			menu();	
 			}
 			    		
-		    	if(askContinue){
+			if(askContinue){
 		    		optionToQuit(); 
 		    		askContinue = false; 
-		    	}
-		   }			
+			}
+		}			
 }
