@@ -5,6 +5,8 @@ School Projects:
 
 The Crime Statistics program extracts various crime data stored in an Excel file and displays it to the user.
 
+The Data Analysis folder contains ongoing projects using Python to analyze and create predictive models with data.
+
 The Drawing Shapes program allows the user to draw various types of shapes on a GUI.
 
 The Property Management Database  allows the user to view and modify stored propeties within a database using a GUI.
@@ -26,6 +28,8 @@ stock_predictor.py incorporates machine learning modules to track and predict st
 学校のプロジェクト：
 
 犯罪統計プログラムは、Excelファイルに保存されたさまざまな犯罪データを抽出し、ユーザーに表示します。
+
+データ分析フォルダには、Pythonを使用してデータを分析し、予測モデルを作成する進行中のプロジェクトが含まれています。
 
 図形描画プログラムは、ユーザーがGUI上でさまざまな種類の図形を描画することができます。
 
