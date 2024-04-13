@@ -7,6 +7,15 @@ Original file is located at
     https://colab.research.google.com/drive/1zlH4b7kRu5gYveeXithAqOJVju58PhmZ
 """
 
+"""
+    File name: gdp_comparison.py
+    Author: Zachary Brown
+    Python Version 3.10.12
+    Description: Importing CSV data of countries and comparing the 
+    GDP per capita to time and life expectancy using the Pandas and 
+    Matplotlib frameworks.
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -27,7 +36,7 @@ data.loc[['China', 'India'], :].T.plot()
 
 # Label the axes
 plt.xlabel('Year')
-plt.ylabel('GDP per capita')
+plt.ylabel('GDP per Capita')
 
 # Add a title
 plt.title('GDP Comparison of China and India (1952-2007)')
