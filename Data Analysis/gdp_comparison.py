@@ -55,7 +55,7 @@ data_all.plot(kind='scatter', x='gdpPercap_2007', y='lifeExp_2007',
               s=data_all['pop_2007']/1e6)
 
 # Set title for the plot.
-plt.title('Correlation between GDP and Life Expectancy in 2007')
+plt.title('Correlation Between GDP and Life Expectancy in 2007')
 
 # Set x and y axis labels.
 plt.xlabel('GDP per Capita (2007)')
