@@ -22,7 +22,6 @@ import pandas as pd
 # Read the data into a variable called data
 data = pd.read_csv('6153237444115dat.csv', na_values=['*', '**', '***', '****',
                                                       '*****', '******'])
-
 # Count the number of rows in the data
 num_rows = len(data)
 print("Number of rows in the data:", num_rows)
@@ -85,7 +84,6 @@ rovaniemi.to_csv('Rovaniemi_temps_May_Aug_2017.csv', index=False, float_format='
 
 # Display a message confirming the completion of the task
 print("DataFrames saved successfully.")
-
 
 """Part IV (a)"""
 
