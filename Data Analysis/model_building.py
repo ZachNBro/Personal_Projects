@@ -7,6 +7,14 @@ Original file is located at
     https://colab.research.google.com/drive/17sj0nurxcfEZBUTiByahXyx2nPwz-PRP
 """
 
+"""
+    File name: model_building.py
+    Author: Zachary Brown
+    Python Version 3.10.12
+    Description: Training, testing and predicting data from
+    a .csv file using the sklearn framework.
+"""
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
