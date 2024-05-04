@@ -11,8 +11,9 @@ Original file is located at
     File name: data_exploration.py
     Author: Zachary Brown
     Python Version 3.10.12
-    Description: Reading and manipulating data from a csv 
-    file using the Pandas framework.
+    Description: Perform importing, analyzing and cleaning of
+    data from a csv file. Read and manipulate temperature data
+    from two cities.
 """
 
 import pandas as pd
