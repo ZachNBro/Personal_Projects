@@ -7,6 +7,16 @@ Original file is located at
     https://colab.research.google.com/drive/1zlH4b7kRu5gYveeXithAqOJVju58PhmZ
 """
 
+"""
+    File name: gdp_comparison.py
+    Author: Zachary Brown
+    Python Version 3.10.12
+    Description: Generate a scatter plot comparing GDP data
+    from China and India. Generate a scatter plot displaying
+    a correlation between GDP and life expectancy of all countries.
+    
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
