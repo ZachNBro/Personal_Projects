@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKF
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import confusion_matrix, classification_report, roc_auc_score, roc_curve
 from imblearn.over_sampling import RandomOverSampler
+from imblearn.pipeline import Pipeline
 
 # Fetch the dataset
 spambase = fetch_ucirepo(id=94)
@@ -40,18 +41,11 @@ X_df['Spam'] = y
 corr_matrix = X_df.corr()
 
 # Select the top 4 features positively and negatively correlated with spam
-top_positive_features = corr_matrix['Spam'].nlargest(5).index 
-top_negative_features = corr_matrix['Spam'].nsmallest(4).index  
+top_positive_features = corr_matrix['Spam'].nlargest(5).index
+top_negative_features = corr_matrix['Spam'].nsmallest(4).index
 
 # Combine selected features
 selected_features = top_positive_features.union(top_negative_features)
-X_selected = X_df[selected_features]
-
-# Plot the correlation heatmap of selected features
-plt.figure(figsize=(12, 10))
-sns.heatmap(X_selected.corr(), annot=True, cmap='coolwarm', vmin=-1, vmax=1)
-plt.title('Correlation Heatmap of Selected Features')
-plt.show()
 
 # Visualize selected features
 def plot_histogram(data, feature):
@@ -76,19 +70,51 @@ for feature in selected_features:
         plot_histogram(X_df, feature)
         plot_boxplot(X_df, y, feature)
 
+# Feature engineering
+# Define the features to remove and their replacements
+features_to_swap = [
+    ('word_freq_your', 'word_freq_free'),
+    ('word_freq_hpl', 'word_freq_conference'),
+    ('word_freq_000', 'word_freq_credit')
+]
+
+# Perform the swapping in a loop
+for old_feature, new_feature in features_to_swap:
+    if old_feature in selected_features:
+        selected_features = selected_features.drop(old_feature)  # Remove the undesired feature
+    if new_feature not in selected_features:
+        selected_features = selected_features.union([new_feature])  # Add the new desired feature
+
+# Update the selected features data frame for our train-test-split
+X_selected = X_df[selected_features]
+
+# Plot the correlation heatmap of selected features
+plt.figure(figsize=(12, 10))
+sns.heatmap(X_selected.corr(), annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+plt.title('Correlation Heatmap of Selected Features')
+plt.show()
+
 # Split the data into training and testing sets with only selected features
 X_train, X_test, y_train, y_test = train_test_split(X_selected.drop(columns=['Spam']), y, train_size=0.7,
                                                     test_size=0.3, shuffle=True)
 
-# Handle class imbalance using RandomOverSampler
-oversampler = RandomOverSampler()
-X_train, y_train = oversampler.fit_resample(X_train, y_train)
+# Define a pipeline that includes oversampling and the Naive Bayes model
+pipeline = Pipeline([
+    ('oversample', RandomOverSampler(sampling_strategy='minority')),  # Oversample within each fold
+    ('model', MultinomialNB())  # Naive Bayes classifier
+])
 
-# Hyperparameter tuning with GridSearchCV
-param_grid = {'alpha': [0.01, 0.1, 0.5, 1.0, 1.5, 2.0]}  # Different alpha values for smoothing
-nb_model = MultinomialNB()
-grid_search = GridSearchCV(nb_model, param_grid, cv=StratifiedKFold(n_splits=5), 
-                           scoring='f1', n_jobs=-1)
+# Define the parameter grid for hyperparameter tuning
+param_grid = {'model__alpha': [0.01, 0.1, 0.5, 1.0, 1.5, 2.0]}  # Different alpha values for smoothing
+
+# Set up GridSearchCV with StratifiedKFold and the pipeline
+grid_search = GridSearchCV(
+    pipeline,
+    param_grid,
+    cv=StratifiedKFold(n_splits=5, shuffle=True),
+    scoring='f1',  # Using F1 score as the evaluation metric
+    n_jobs=-1
+)
 
 # Fit the GridSearchCV to the data
 grid_search.fit(X_train, y_train)
